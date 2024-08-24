@@ -20,6 +20,7 @@ public class PrintArrayList {
         }
     }
 }
+/////////////////////////////////////////////////////////////////////////////////
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +39,7 @@ public class PrintArrayList {
         }
     }
 }
+/////////////////////////////////////////////////////////////////
 @FunctionalInterface
 interface Sum {
     int add(int a, int b);
@@ -53,5 +55,37 @@ public class SumLambda {
 
         // Print the result
         System.out.println("Sum: " + result);  // Output: Sum: 30
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+@FunctionalInterface
+public interface InterfaceExample {
+    // Static Method
+    static int sumStatic(int a, int b) {
+        return a + b;
+    }
+
+    // Abstract Method
+    int sumAbstract(int a, int b);
+
+    // Default Method
+    default void show(String method, int result) {
+        System.out.println(method + " result: " + result);
+    }
+}
+
+public class FunctionalInterfaceExample {
+    public static void main(String[] args) {
+        // Using a lambda expression to implement the abstract method
+        InterfaceExample example = (a, b) -> a + b;
+
+        // Calling the abstract method
+        int resultAbstract = example.sumAbstract(10, 20);
+        example.show("Abstract Method", resultAbstract);
+
+        // Calling the static method directly from the interface
+        int resultStatic = InterfaceExample.sumStatic(30, 40);
+        example.show("Static Method", resultStatic);
     }
 }
