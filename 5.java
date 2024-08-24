@@ -38,3 +38,20 @@ public class PrintArrayList {
         }
     }
 }
+@FunctionalInterface
+interface Sum {
+    int add(int a, int b);
+}
+
+public class SumLambda {
+    public static void main(String[] args) {
+        // Use a lambda expression to define the add method
+        Sum sum = (a, b) -> a + b;
+
+        // Example usage
+        int result = sum.add(10, 20);
+
+        // Print the result
+        System.out.println("Sum: " + result);  // Output: Sum: 30
+    }
+}
