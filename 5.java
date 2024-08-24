@@ -89,3 +89,30 @@ public class FunctionalInterfaceExample {
         example.show("Static Method", resultStatic);
     }
 }
+///////////////////////////////////////////////////////////////////////////////
+@FunctionalInterface  
+public interface InterfaceDemo {  
+    public abstract void test(); // Abstract method  
+
+    default void test2() { // Default method  
+        System.out.println("Hi I'm default method");  
+    }  
+
+    static void test3() { // Static method  
+        System.out.println("Hi I'm static method");  
+    }  
+}  
+
+public class Game implements InterfaceDemo {  
+    @Override  
+    public void test() { // Implementing the abstract method  
+        System.out.println("Test method implemented");  
+    }  
+
+    public static void main(String[] args) {  
+        InterfaceDemo gg = new Game(); // Dynamic binding  
+        gg.test(); // Calls the implemented method  
+        gg.test2(); // Calls the default method  
+        InterfaceDemo.test3(); // Calls the static method  
+    }  
+}
